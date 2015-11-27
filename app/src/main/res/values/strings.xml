@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">SampleAppMojo</string>
+    <string name="action_settings">Settings</string>
+    <string name="banner_page_title">SampleBanner</string>
+
+    <!--Ads-->
+    <string name="app_id">app-753152366</string>
+    <string name="app_secret">12ac77e5-3b37-4274-b3c6-b4bcb3316ab4</string>
+    <string name="banner_placement_one">pla-app-753152366-1284</string>
+    <string name="banner_placement_two">pla-app-753152366-8433</string>
+    <string name="interstitial_placement_id">pla-app-753152366-7248</string>
+    <array name="devices_uuid">
+        <item>3EBE6A2A6A3312834B696B2EBC370892</item>
+        <item>684830BE6883B99FC158257B1EA96415</item>
+        <item>F0C70237C4EF5AFE759232CC51408608</item>
+        <item>63BB631660C31B1038A98289F2E585D2</item>
+        <item>050781C725C9DE736A757A8107359451</item>
+        <item>91B4FD56AA2E412B6B63FE814E992414</item>
+        <item>916D91B951FF839E701CCBF7E4DC030C</item>
+        <item>C42E70D58A7830BAAA446B643225500E</item>
+    </array>
+</resources>
