@@ -3,22 +3,21 @@ package com.sample.appmojo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.appmojo.sdk.AppMojo;
-import com.sample.appmojo.adapters.MainRecyclerAdapter;
+import com.sample.appmojo.adapters.MainListAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView mRecyclerView;
-    private MainRecyclerAdapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
+    private ListView mListView;
+    private MainListAdapter mListAdapter;
     private MainActivityCallBack mCallBackListener;
 
     @Override
@@ -35,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 getString(R.string.app_id), getString(R.string.app_secret));
 
         mCallBackListener = new MainActivityCallBack();
-        setupRecyclerView();
+        setupListView();
 
     }
 
@@ -48,18 +47,15 @@ public class MainActivity extends AppCompatActivity {
         toolbarTitleTv.setText(getString(R.string.banner_page_title));
     }
 
-    private void setupRecyclerView() {
-        mRecyclerView = (RecyclerView) findViewById(R.id.main_recycler_view);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        mRecyclerView.setLayoutManager(mLayoutManager);
+    private void setupListView() {
+        String[] classNames = new String[]{
+                BannerActivity.class.getSimpleName(),
+                InterstitialActivity.class.getSimpleName()};
 
-        String[] classNames = new String[]{ BannerActivity.class.getSimpleName()};
-
-        // specify an adapter (see also next example)
-        mAdapter = new MainRecyclerAdapter(classNames);
-        mAdapter.setOnItemClickListener(mCallBackListener);
-        mRecyclerView.setAdapter(mAdapter);
+        mListAdapter = new MainListAdapter(getApplicationContext(), classNames);
+        mListView = (ListView) findViewById(R.id.list_view);
+        mListView.setAdapter(mListAdapter);
+        mListView.setOnItemClickListener(mCallBackListener);
     }
 
     @Override
@@ -83,13 +79,19 @@ public class MainActivity extends AppCompatActivity {
     //   _| |_| |\ | | |\ | |  __/|   /| |___| | (_)  \ \__ \\__ \
     //  |_____|_| \__|_| \__|\___||__|  \____|_|\___/|_\|___/|___/
 
-    private class MainActivityCallBack implements MainRecyclerAdapter.IViewItemClickListener{
-
+    private class MainActivityCallBack implements ListView.OnItemClickListener {
         @Override
-        public void onItemClick(View view, int position) {
-            if(position == 0) {
-                Intent intent = new Intent(getApplicationContext(), BannerActivity.class);
-                startActivity(intent);
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Intent intent;
+            switch (position) {
+                case 0:
+                    intent = new Intent(getApplicationContext(), BannerActivity.class);
+                    startActivity(intent);
+                    break;
+                case 1:
+                    intent = new Intent(getApplicationContext(), InterstitialActivity.class);
+                    startActivity(intent);
+                    break;
             }
         }
     }

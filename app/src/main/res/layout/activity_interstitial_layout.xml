@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:appMojo="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -24,16 +23,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.appmojo.sdk.AMBannerView
-            android:id="@+id/banner_top_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            appMojo:AMAdSize="BANNER"
-            appMojo:AMAutoHide="true"
-            appMojo:AMPlacementId="@string/banner_placement_one" />
+        android:layout_height="match_parent"
+        android:gravity="center">
 
         <ImageView
             android:layout_width="match_parent"
@@ -42,11 +33,32 @@
             android:alpha="0.2"
             android:src="@drawable/appmojo_bg" />
 
-        <FrameLayout
-            android:id="@+id/banner_btm_layout"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/interAd_refresh_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onClickBtn"
+                android:textColor="@android:color/white"
+                android:background="@drawable/button_state_drawable"
+                android:text="@string/btn_reload" />
+
+            <Button
+                android:id="@+id/interAd_show_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/button_state_drawable"
+                android:onClick="onClickBtn"
+                android:text="@string/btn_show" />
+        </LinearLayout>
+
     </RelativeLayout>
+
 </LinearLayout>

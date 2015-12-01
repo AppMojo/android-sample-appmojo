@@ -1,7 +1,5 @@
 package com.sample.appmojo;
 
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -48,9 +46,6 @@ public class BannerActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         mToolbarTitle.setText(getString(R.string.banner_page_title));
-        final Drawable upArrow = getResources().getDrawable(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
-        upArrow.setColorFilter(getResources().getColor(android.R.color.white), PorterDuff.Mode.SRC_ATOP);
-        getSupportActionBar().setHomeAsUpIndicator(upArrow);
     }
 
     @Override
@@ -89,6 +84,15 @@ public class BannerActivity extends AppCompatActivity {
         mBannerBtmLayout.addView(mBannerBtmView);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mBannerTopView != null)
+            mBannerTopView.destroy();
+
+        if(mBannerBtmView != null)
+            mBannerBtmView.destroy();
+    }
 
     //   _____ __  __ __  __             ____ _
     //  |_   _|  \ | |  | | | ___  __ __/ ___| | ____ 	 ___  ___
@@ -120,6 +124,16 @@ public class BannerActivity extends AppCompatActivity {
             if (view.getPlacementUid().equals(getString(R.string.banner_placement_two))) {
                 mBannerBtmLayout.setVisibility(View.GONE);
             }
+        }
+
+        @Override
+        public void onAdOpened(AMBannerView view) {
+            AMLog.d(TAG, "onAdOpened # ....");
+        }
+
+        @Override
+        public void onAdClosed(AMBannerView view) {
+            AMLog.d(TAG, "onAdClosed # ....");
         }
     }
 }

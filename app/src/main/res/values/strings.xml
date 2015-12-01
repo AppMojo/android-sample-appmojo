@@ -2,6 +2,10 @@
     <string name="app_name">SampleAppMojo</string>
     <string name="action_settings">Settings</string>
     <string name="banner_page_title">SampleBanner</string>
+    <string name="interstitial_page_title">SampleInterstitial</string>
+
+    <string name="btn_reload">reload</string>
+    <string name="btn_show">show</string>
 
     <!--Ads-->
     <string name="app_id">app-753152366</string>

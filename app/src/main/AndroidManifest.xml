@@ -25,10 +25,15 @@
 
         <activity
             android:name=".BannerActivity"
-            android:label="SampleBanner"
+            android:label="Sample Banner"
             android:theme="@style/AppTheme.WithoutActionBar">
         </activity>
 
+        <activity
+            android:name=".InterstitialActivity"
+            android:label="Sample Interstitial"
+            android:theme="@style/AppTheme.WithoutActionBar">
+        </activity>
 
         <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 
