@@ -15,9 +15,7 @@ import com.appmojo.sdk.AMBannerView;
 import com.appmojo.sdk.base.AMAdSize;
 import com.appmojo.sdk.utils.AMLog;
 
-/**
- * Created by nutron on 11/27/15 AD.
- */
+
 public class BannerActivity extends AppCompatActivity {
     private static final String TAG = "BannerActivity";
 

@@ -16,8 +16,6 @@ import com.sample.appmojo.adapters.MainListAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ListView mListView;
-    private MainListAdapter mListAdapter;
     private MainActivityCallBack mCallBackListener;
 
     @Override
@@ -52,10 +50,10 @@ public class MainActivity extends AppCompatActivity {
                 BannerActivity.class.getSimpleName(),
                 InterstitialActivity.class.getSimpleName()};
 
-        mListAdapter = new MainListAdapter(getApplicationContext(), classNames);
-        mListView = (ListView) findViewById(R.id.list_view);
-        mListView.setAdapter(mListAdapter);
-        mListView.setOnItemClickListener(mCallBackListener);
+        MainListAdapter listAdapter = new MainListAdapter(getApplicationContext(), classNames);
+        ListView listView = (ListView) findViewById(R.id.list_view);
+        listView.setAdapter(listAdapter);
+        listView.setOnItemClickListener(mCallBackListener);
     }
 
     @Override
