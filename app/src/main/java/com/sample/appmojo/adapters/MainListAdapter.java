@@ -9,9 +9,7 @@ import android.widget.TextView;
 
 import com.sample.appmojo.R;
 
-/**
- * Created by nutron on 12/1/15 AD.
- */
+
 public class MainListAdapter extends BaseAdapter {
 
     private String[] dataSet;
